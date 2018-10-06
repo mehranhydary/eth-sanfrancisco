@@ -34,7 +34,56 @@ class App extends Component {
       console.log(error);
     }
   };
+  createLoanOnRCN = async () => {
+    const { accounts, contract } = this.state;
 
+    // Stores a given value, 5 by default.
+    await contract.createLoan(5, { from: accounts[0] });
+
+    // Get the value from the contract to prove it worked.
+    const response = await contract.get();
+
+    // Update state with the result.
+    this.setState({ loan_id: response });
+  };
+
+  approveLoanOnRCN = async () => {
+    const { accounts, contract } = this.state;
+
+    // Stores a given value, 5 by default.
+    await contract.createLoan(5, { from: accounts[0] });
+
+    // Get the value from the contract to prove it worked.
+    const response = await contract.get();
+
+    // Update state with the result.
+    this.setState({ loan_id: response });
+  };  
+
+  lendALoanOnRCN = async () => {
+    const { accounts, contract } = this.state;
+
+    // Stores a given value, 5 by default.
+    await contract.createLoan(5, { from: accounts[0] });
+
+    // Get the value from the contract to prove it worked.
+    const response = await contract.get();
+
+    // Update state with the result.
+    this.setState({ loan_id: response });
+  };  
+  payLoanOnRCN = async () => {
+    const { accounts, contract } = this.state;
+
+    // Stores a given value, 5 by default.
+    await contract.createLoan(5, { from: accounts[0] });
+
+    // Get the value from the contract to prove it worked.
+    const response = await contract.get();
+
+    // Update state with the result.
+    this.setState({ loan_id: response });
+  };    
   render() {
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;

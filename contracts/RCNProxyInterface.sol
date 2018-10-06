@@ -21,17 +21,35 @@ contract RCNProxyInterface {
 	    uint256 _expiration,
 	    string _metadata
 	) public returns (uint256 id);
-	function approveLoan();
-	function payLoan ();
-	function withdrawLoan ();
-	// Creating loans will require the following inputs:
-		// x. oracle, borrower, currency, amount, 
-		// 		interest rate, pentality interest rate, dues in, 
-		// 		first payment, expiration, meta data
 
+	function approveLoan(uint256 _loan_identifier);
 
+	function lendALoan(
+		uint256 _loan_identifier,
+		bytes32 _oracle_data,
+	) external;
+
+	function payLoan (
+		uint256 loanId, 
+		bytes oracleData, 
+		address cosigner, 
+		bytes cosignerData
+	) external returns (bool);
+
+	function pay(
+		uint256 loanId, 
+		uint128 amount, 
+		address from, 
+		bytes oracleData
+	) external returns (bool);
+
+	function consign(
+		uint loanId, uint256 cos
+	) external returns (bool);
+
+	function withdrawLoan (
+		uint loanId, 
+		address to, 
+		uint128 amount
+	) public returns (bool);
 }
-
-// Contract address; import that; get the contract will look liel; use that to interface it; use that as a contract address in web 3; once we have that we can create a proxy contract based on those functions; then we can allow 
-
-// people can put in 1 eth; puts in a request into RCN for how much they want as a loan; different parameters; and then based on that (simplest requiest is 10 eth); allow 10 people to put in 1 ETH; risk mitigation via that; payable functions for people to put; last person to put it in; 
