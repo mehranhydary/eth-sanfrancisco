@@ -20,19 +20,10 @@ contract RCNProxyInterface {
 	    uint256 _firstPayment,
 	    uint256 _expiration,
 	    string _metadata
-	) public returns (uint256 id) {
-
-	}
-	function approveLoan() {
-
-	}
-	function payLoan () {
-
-	}
-
-	function withdrawLoan () {
-
-	}
+	) public returns (uint256 id);
+	function approveLoan();
+	function payLoan ();
+	function withdrawLoan ();
 	// Creating loans will require the following inputs:
 		// x. oracle, borrower, currency, amount, 
 		// 		interest rate, pentality interest rate, dues in, 
